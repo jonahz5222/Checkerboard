@@ -55,13 +55,44 @@ public class CheckerboardFXMLController implements Initializable,Startable {
     
     @FXML
     public void handleChangeSize(ActionEvent event){
-        System.out.println(event.getSource().toString());
+        
+        MenuItem menuItem = (MenuItem)event.getSource();
+        
+        switch(menuItem.getId()){
+            case "size16" :
+                
+                break;
+                
+            case "size10" :
+                
+                break;
+                
+            case "size8" :
+                
+                break;
+                
+            case "size3" :
+                
+                break;
+        }
         
     }
     
     @FXML
     public void handleChangeColor(ActionEvent event){
         
+        MenuItem menuItem = (MenuItem)event.getSource();
+        
+        switch(menuItem.getId()){
+            
+            case "defaultColors" :
+                
+                break;
+                
+            case "blueColors" :
+                
+                break;
+        }
     }
     
 }
