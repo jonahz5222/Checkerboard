@@ -7,20 +7,61 @@ package checkerboard;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.MenuItem;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  *
  * @author jonahzukosky
  */
-public class CheckerboardFXMLController implements Initializable {
+public class CheckerboardFXMLController implements Initializable,Startable {
     
     
+    @FXML
+    private AnchorPane anchorPane;
+    
+    @FXML
+    private MenuItem size16;
+    
+    @FXML
+    private MenuItem size10;
+    
+    @FXML
+    private MenuItem size8;
+    
+    @FXML
+    private MenuItem size3;
+    
+    @FXML
+    private MenuItem defaultColors;
+    
+    @FXML
+    private MenuItem blueColors;
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @Override
+    public void start(Stage stage) {
+        
+    }
+    
+    @FXML
+    public void handleChangeSize(ActionEvent event){
+        System.out.println(event.getSource().toString());
+        
+    }
+    
+    @FXML
+    public void handleChangeColor(ActionEvent event){
+        
+    }
     
 }
