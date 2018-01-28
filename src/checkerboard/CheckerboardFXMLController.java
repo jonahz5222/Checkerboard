@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 /**
@@ -42,6 +43,10 @@ public class CheckerboardFXMLController implements Initializable,Startable {
     @FXML
     private MenuItem blueColors;
     
+    int size;
+    Color darkColor;
+    Color lightColor;
+    private Stage stage;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -50,6 +55,10 @@ public class CheckerboardFXMLController implements Initializable,Startable {
 
     @Override
     public void start(Stage stage) {
+        this.stage = stage;
+        
+        
+        //Checkerboard checkerboard = new Checkerboard();
         
     }
     
@@ -60,19 +69,19 @@ public class CheckerboardFXMLController implements Initializable,Startable {
         
         switch(menuItem.getId()){
             case "size16" :
-                
+                size = 16;
                 break;
                 
             case "size10" :
-                
+                size = 10;
                 break;
                 
             case "size8" :
-                
+                size = 8;
                 break;
                 
             case "size3" :
-                
+                size = 3;
                 break;
         }
         
@@ -86,13 +95,23 @@ public class CheckerboardFXMLController implements Initializable,Startable {
         switch(menuItem.getId()){
             
             case "defaultColors" :
-                
+                darkColor = Color.BLACK;
+                lightColor = Color.RED;
                 break;
                 
             case "blueColors" :
-                
+                darkColor = Color.DARKBLUE;
+                lightColor = Color.SKYBLUE;
                 break;
         }
+    }
+    
+    public void newBoard(int size,Color darkColor,Color lightColor){
+        
+    
+        Checkerboard checkerboard = new Checkerboard(size,size,anchorPane.getWidth(),anchorPane.getHeight());
+        
+        
     }
     
 }
