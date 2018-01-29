@@ -28,6 +28,8 @@ public class CheckerboardClass {
     
     private Color darkColor;
     private Color lightColor;
+    
+    private AnchorPane anchorPane;
 
     
     CheckerboardClass(int numRows,int numColumns,double boardWidth, double boardHeight){
@@ -54,15 +56,21 @@ public class CheckerboardClass {
         
         for(int row = 0; row < numRows; row++){
             for(int col = 0; col < numColumns; col++){
+                Rectangle rectangle;
                 if(row % 2 == 0 && col % 2 == 0){
-                    Rectangle rect = new Rectangle(rectangleWidth, rectangleHeight, darkColor);
-                }else if(row % 2 != 0 && col % 2 != 0){
-                    Rectangle rect = new Rectangle(rectangleWidth, rectangleHeight, lightColor);
+                    rectangle = new Rectangle(rectangleWidth, rectangleHeight, darkColor);
+                }else{
+                    rectangle = new Rectangle(rectangleWidth, rectangleHeight, lightColor);
                 }
+                
+                AnchorPane.setTopAnchor(rectangle, rectangleHeight * row);
+                AnchorPane.setLeftAnchor(rectangle, rectangleWidth * col);
+                
+                anchorPane.getChildren().add(rectangle);
                 
             }
         }
-        
+        this.anchorPane = anchorPane;
         
         return anchorPane;
     }
