@@ -51,9 +51,8 @@ public class CheckerboardFXMLController implements Initializable,Startable {
     @FXML
     private VBox vbox;
     
-    int size;
-    Color darkColor;
-    Color lightColor;
+   
+    
     private Stage stage;
     public CheckerboardClass checkerBoard;
     
@@ -82,19 +81,19 @@ public class CheckerboardFXMLController implements Initializable,Startable {
         
         switch(menuItem.getId()){
             case "size16" :
-                size = 16;
+                newBoard(new CheckerboardClass(16,16,stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight(),this.checkerBoard.getDarkColor(),this.checkerBoard.getLightColor()));
                 break;
                 
             case "size10" :
-                size = 10;
+                newBoard(new CheckerboardClass(10,10,stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight(),this.checkerBoard.getDarkColor(),this.checkerBoard.getLightColor()));
                 break;
                 
             case "size8" :
-                size = 8;
+                newBoard(new CheckerboardClass(8,8,stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight(),this.checkerBoard.getDarkColor(),this.checkerBoard.getLightColor()));
                 break;
                 
             case "size3" :
-                size = 3;
+                newBoard(new CheckerboardClass(3,3,stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight(),this.checkerBoard.getDarkColor(),this.checkerBoard.getLightColor()));
                 break;
         }
         
@@ -108,29 +107,27 @@ public class CheckerboardFXMLController implements Initializable,Startable {
         switch(menuItem.getId()){
             
             case "defaultColors" :
-                darkColor = Color.BLACK;
-                lightColor = Color.RED;
+                newBoard(new CheckerboardClass(this.checkerBoard.getNumRows(),this.checkerBoard.getNumColumns(),stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight(),Color.BLACK,Color.RED));
                 break;
                 
             case "blueColors" :
-                darkColor = Color.DARKBLUE;
-                lightColor = Color.SKYBLUE;
+                
                 break;
         }
     }
     
-    public void newBoard(CheckerboardClass checkerboard){
+    public void newBoard(CheckerboardClass checkerBoard){
         
-    if(checkerboard != null){
+    if(checkerBoard != null){
         
-        this.checkerBoard = checkerboard;
+        this.checkerBoard = checkerBoard;
         
         vbox.getChildren().remove(anchorPane);
-        anchorPane = checkerboard.getBoard();
+        anchorPane = checkerBoard.getBoard();
         vbox.getChildren().add(anchorPane);
         
         
    
     }
     
-}
+}}
