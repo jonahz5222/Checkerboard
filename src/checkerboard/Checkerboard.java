@@ -25,8 +25,8 @@ public class Checkerboard extends Application {
     private double boardWidth;
     private double boardHeight;
     
-    private Color defaultDark = Color.BLACK;
-    private Color defaultLight = Color.RED;
+    private final Color defaultDark = Color.BLACK;
+    private final Color defaultLight = Color.RED;
     
     private Color darkColor;
     private Color lightColor;
@@ -37,6 +37,8 @@ public class Checkerboard extends Application {
         this.numColumns = numColumns;
         this.boardWidth = boardWidth;
         this.boardHeight = boardHeight;
+        this.darkColor = defaultDark;
+        this.lightColor = defaultLight;
     }
     
     Checkerboard(int numRows,int numColumns,double boardWidth,double boardHeight,Color darkColor,Color lightColor){
