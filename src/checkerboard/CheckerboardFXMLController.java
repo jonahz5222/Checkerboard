@@ -111,7 +111,7 @@ public class CheckerboardFXMLController implements Initializable,Startable {
                 break;
                 
             case "blueColors" :
-                
+                newBoard(new CheckerboardClass(this.checkerBoard.getNumRows(),this.checkerBoard.getNumColumns(),stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight(),Color.DARKBLUE,Color.SKYBLUE));
                 break;
         }
     }
