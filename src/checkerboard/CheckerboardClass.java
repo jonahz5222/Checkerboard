@@ -58,9 +58,9 @@ public class CheckerboardClass {
             for(int col = 0; col < numColumns; col++){
                 Rectangle rectangle;
                 if(row % 2 == 0 && col % 2 == 0){
-                    rectangle = new Rectangle(rectangleWidth, rectangleHeight, darkColor);
-                }else{
                     rectangle = new Rectangle(rectangleWidth, rectangleHeight, lightColor);
+                }else{
+                    rectangle = new Rectangle(rectangleWidth, rectangleHeight, darkColor);
                 }
                 
                 AnchorPane.setTopAnchor(rectangle, rectangleHeight * row);
