@@ -7,11 +7,15 @@ package checkerboard;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -21,7 +25,8 @@ import javafx.stage.Stage;
  */
 public class CheckerboardFXMLController implements Initializable,Startable {
     
-    
+    @FXML
+    private MenuBar menuBar;
     @FXML
     private AnchorPane anchorPane;
     
@@ -43,10 +48,18 @@ public class CheckerboardFXMLController implements Initializable,Startable {
     @FXML
     private MenuItem blueColors;
     
+    @FXML
+    private VBox vbox;
+    
     int size;
     Color darkColor;
     Color lightColor;
     private Stage stage;
+    public CheckerboardClass checkerBoard;
+    
+    ChangeListener<Number> lambdaChangeListener = ((ObservableValue<? extends Number> observable, Number oldValue, final Number newValue) -> {
+        newBoard(new CheckerboardClass(this.checkerBoard.getNumRows(), this.checkerBoard.getNumColumns(), stage.getScene().getWidth(),stage.getScene().getHeight() - menuBar.getHeight(), this.checkerBoard.getDarkColor(),this.checkerBoard.getLightColor()));
+    });
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -106,12 +119,18 @@ public class CheckerboardFXMLController implements Initializable,Startable {
         }
     }
     
-    public void newBoard(int size,Color darkColor,Color lightColor){
+    public void newBoard(CheckerboardClass checkerboard){
         
-    
-        CheckerboardClass checkerboard = new CheckerboardClass(size,size,anchorPane.getWidth(),anchorPane.getHeight());
+    if(checkerboard != null){
+        
+        this.checkerBoard = checkerboard;
+        
+        vbox.getChildren().remove(anchorPane);
+        anchorPane = checkerboard.getBoard();
+        vbox.getChildren().add(anchorPane);
         
         
+   
     }
     
 }
