@@ -109,7 +109,7 @@ public class CheckerboardFXMLController implements Initializable,Startable {
     public void newBoard(int size,Color darkColor,Color lightColor){
         
     
-        Checkerboard checkerboard = new Checkerboard(size,size,anchorPane.getWidth(),anchorPane.getHeight());
+        CheckerboardClass checkerboard = new CheckerboardClass(size,size,anchorPane.getWidth(),anchorPane.getHeight());
         
         
     }
