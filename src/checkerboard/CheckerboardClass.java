@@ -57,7 +57,7 @@ public class CheckerboardClass {
         for(int row = 0; row < numRows; row++){
             for(int col = 0; col < numColumns; col++){
                 Rectangle rectangle;
-                if(row % 2 == 0 && col % 2 == 0){
+                if(( row + col ) % 2 == 0){
                     rectangle = new Rectangle(rectangleWidth, rectangleHeight, lightColor);
                 }else{
                     rectangle = new Rectangle(rectangleWidth, rectangleHeight, darkColor);
