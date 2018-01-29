@@ -122,16 +122,13 @@ public class CheckerboardFXMLController implements Initializable,Startable {
     
     public void newBoard(CheckerboardClass checkerBoard){
         
-    if(checkerBoard != null){
+    if(checkerBoard.build() != null){
         
         this.checkerBoard = checkerBoard;
         
         vbox.getChildren().remove(anchorPane);
         anchorPane = checkerBoard.getBoard();
         vbox.getChildren().add(anchorPane);
-        
-        
-   
     }
     
 }}

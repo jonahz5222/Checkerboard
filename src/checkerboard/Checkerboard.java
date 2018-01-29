@@ -23,17 +23,19 @@ public class Checkerboard extends Application {
     public void start(Stage stage) throws Exception {  
         FXMLLoader loader = new FXMLLoader(getClass().getResource("CheckerboardFXML.fxml"));
         Parent root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        
+        
         Startable controller = loader.getController();
-        
-        
-        
+       
         controller.start(stage);
        
         
-        Scene scene = new Scene(root);
         
-        stage.setScene(scene);
-        stage.show();
+        
+        
     }
 
     /**
