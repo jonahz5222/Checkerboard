@@ -7,6 +7,7 @@ package checkerboard;
 
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 /**
  *
@@ -19,6 +20,9 @@ public class CheckerboardClass {
     private double boardWidth;
     private double boardHeight;
     
+    private double rectangleWidth;
+    private double rectangleHeight;
+    
     private static final Color DEFAULT_DARK = Color.BLACK;
     private static final Color DEFAULT_LIGHT = Color.RED;
     
@@ -27,10 +31,10 @@ public class CheckerboardClass {
 
     
     CheckerboardClass(int numRows,int numColumns,double boardWidth, double boardHeight){
-        this(numRows,numColumns,boardWidth,boardHeight,DEFAULT_DARK,DEFAULT_LIGHT);
+        this(numRows,numColumns,boardWidth,boardHeight,DEFAULT_LIGHT,DEFAULT_DARK);
     }
     
-    CheckerboardClass(int numRows,int numColumns,double boardWidth,double boardHeight,Color darkColor,Color lightColor){
+    CheckerboardClass(int numRows,int numColumns,double boardWidth,double boardHeight,Color lightColor,Color darkColor){
         
         
         this.numRows = numRows;
@@ -39,13 +43,25 @@ public class CheckerboardClass {
         this.boardHeight = boardHeight;
         this.darkColor = darkColor;
         this.lightColor = lightColor;
-        
+        this.rectangleWidth = Math.ceil(boardWidth / numColumns);
+        this.rectangleHeight = Math.ceil(boardHeight / numRows);
         
     }
     
     public AnchorPane build(){
         //Builds the board UI and returns an AnchorPane
         AnchorPane anchorPane = new AnchorPane();
+        
+        for(int row = 0; row < numRows; row++){
+            for(int col = 0; col < numColumns; col++){
+                if(row % 2 == 0 && col % 2 == 0){
+                    Rectangle rect = new Rectangle(rectangleWidth, rectangleHeight, darkColor);
+                }else if(row % 2 != 0 && col % 2 != 0){
+                    Rectangle rect = new Rectangle(rectangleWidth, rectangleHeight, lightColor);
+                }
+                
+            }
+        }
         
         
         return anchorPane;

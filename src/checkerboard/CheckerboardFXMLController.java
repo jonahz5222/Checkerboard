@@ -68,10 +68,10 @@ public class CheckerboardFXMLController implements Initializable,Startable {
         this.stage = stage;
         
         ChangeListener<Number> lambdaChangeListener = ((ObservableValue<? extends Number> observable, Number oldValue, final Number newValue) -> {
-        newBoard(new CheckerboardClass(this.checkerBoard.getNumRows(), this.checkerBoard.getNumColumns(), stage.getScene().getWidth(),stage.getScene().getHeight() - menuBar.getHeight(), this.checkerBoard.getDarkColor(),this.checkerBoard.getLightColor()));
+        newBoard(new CheckerboardClass(this.checkerBoard.getNumRows(), this.checkerBoard.getNumColumns(), stage.getScene().getWidth(),stage.getScene().getHeight() - menuBar.getHeight(), this.checkerBoard.getLightColor(),this.checkerBoard.getDarkColor()));
         });
         
-        newBoard(new CheckerboardClass(8,8,stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight(),Color.BLACK,Color.RED));
+        newBoard(new CheckerboardClass(8,8,stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight(),Color.RED,Color.BLACK));
         this.stage.widthProperty().addListener(lambdaChangeListener);
         this.stage.heightProperty().addListener(lambdaChangeListener);
         
@@ -85,19 +85,19 @@ public class CheckerboardFXMLController implements Initializable,Startable {
         
         switch(menuItem.getId()){
             case "size16" :
-                newBoard(new CheckerboardClass(16,16,stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight(),this.checkerBoard.getDarkColor(),this.checkerBoard.getLightColor()));
+                newBoard(new CheckerboardClass(16,16,stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight(),this.checkerBoard.getLightColor(),this.checkerBoard.getDarkColor()));
                 break;
                 
             case "size10" :
-                newBoard(new CheckerboardClass(10,10,stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight(),this.checkerBoard.getDarkColor(),this.checkerBoard.getLightColor()));
+                newBoard(new CheckerboardClass(10,10,stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight(),this.checkerBoard.getLightColor(),this.checkerBoard.getDarkColor()));
                 break;
                 
             case "size8" :
-                newBoard(new CheckerboardClass(8,8,stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight(),this.checkerBoard.getDarkColor(),this.checkerBoard.getLightColor()));
+                newBoard(new CheckerboardClass(8,8,stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight(),this.checkerBoard.getLightColor(),this.checkerBoard.getDarkColor()));
                 break;
                 
             case "size3" :
-                newBoard(new CheckerboardClass(3,3,stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight(),this.checkerBoard.getDarkColor(),this.checkerBoard.getLightColor()));
+                newBoard(new CheckerboardClass(3,3,stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight(),this.checkerBoard.getLightColor(),this.checkerBoard.getDarkColor()));
                 break;
         }
         
@@ -115,7 +115,7 @@ public class CheckerboardFXMLController implements Initializable,Startable {
                 break;
                 
             case "blueColors" :
-                newBoard(new CheckerboardClass(this.checkerBoard.getNumRows(),this.checkerBoard.getNumColumns(),stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight(),Color.DARKBLUE,Color.SKYBLUE));
+                newBoard(new CheckerboardClass(this.checkerBoard.getNumRows(),this.checkerBoard.getNumColumns(),stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight(),Color.SKYBLUE,Color.DARKBLUE));
                 break;
         }
     }
