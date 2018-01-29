@@ -56,9 +56,7 @@ public class CheckerboardFXMLController implements Initializable,Startable {
     private Stage stage;
     public CheckerboardClass checkerBoard;
     
-    ChangeListener<Number> lambdaChangeListener = ((ObservableValue<? extends Number> observable, Number oldValue, final Number newValue) -> {
-        newBoard(new CheckerboardClass(this.checkerBoard.getNumRows(), this.checkerBoard.getNumColumns(), stage.getScene().getWidth(),stage.getScene().getHeight() - menuBar.getHeight(), this.checkerBoard.getDarkColor(),this.checkerBoard.getLightColor()));
-    });
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -68,6 +66,10 @@ public class CheckerboardFXMLController implements Initializable,Startable {
     @Override
     public void start(Stage stage) {
         this.stage = stage;
+        
+        ChangeListener<Number> lambdaChangeListener = ((ObservableValue<? extends Number> observable, Number oldValue, final Number newValue) -> {
+        newBoard(new CheckerboardClass(this.checkerBoard.getNumRows(), this.checkerBoard.getNumColumns(), stage.getScene().getWidth(),stage.getScene().getHeight() - menuBar.getHeight(), this.checkerBoard.getDarkColor(),this.checkerBoard.getLightColor()));
+        });
         
         newBoard(new CheckerboardClass(8,8,stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight(),Color.BLACK,Color.RED));
         this.stage.widthProperty().addListener(lambdaChangeListener);
@@ -109,7 +111,7 @@ public class CheckerboardFXMLController implements Initializable,Startable {
         switch(menuItem.getId()){
             
             case "defaultColors" :
-                newBoard(new CheckerboardClass(this.checkerBoard.getNumRows(),this.checkerBoard.getNumColumns(),stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight(),Color.BLACK,Color.RED));
+                newBoard(new CheckerboardClass(this.checkerBoard.getNumRows(),this.checkerBoard.getNumColumns(),stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight()));
                 break;
                 
             case "blueColors" :

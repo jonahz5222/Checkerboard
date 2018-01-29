@@ -19,27 +19,26 @@ public class CheckerboardClass {
     private double boardWidth;
     private double boardHeight;
     
-    private final Color defaultDark = Color.BLACK;
-    private final Color defaultLight = Color.RED;
+    private static final Color DEFAULT_DARK = Color.BLACK;
+    private static final Color DEFAULT_LIGHT = Color.RED;
     
     private Color darkColor;
     private Color lightColor;
 
     
     CheckerboardClass(int numRows,int numColumns,double boardWidth, double boardHeight){
-        this.numRows = numRows;
-        this.numColumns = numColumns;
-        this.boardWidth = boardWidth;
-        this.boardHeight = boardHeight;
-        this.darkColor = defaultDark;
-        this.lightColor = defaultLight;
+        this(numRows,numColumns,boardWidth,boardHeight,DEFAULT_DARK,DEFAULT_LIGHT);
     }
     
     CheckerboardClass(int numRows,int numColumns,double boardWidth,double boardHeight,Color darkColor,Color lightColor){
         
-        CheckerboardClass checkerboard = new CheckerboardClass(numRows,numColumns,boardWidth,boardHeight);
-        checkerboard.darkColor = darkColor;
-        checkerboard.lightColor = lightColor;
+        
+        this.numRows = numRows;
+        this.numColumns = numColumns;
+        this.boardWidth = boardWidth;
+        this.boardHeight = boardHeight;
+        this.darkColor = darkColor;
+        this.lightColor = lightColor;
         
         
     }
