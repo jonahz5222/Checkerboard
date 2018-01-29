@@ -69,8 +69,10 @@ public class CheckerboardFXMLController implements Initializable,Startable {
     public void start(Stage stage) {
         this.stage = stage;
         
+        newBoard(new CheckerboardClass(8,8,stage.getScene().getWidth(),stage.getScene().getHeight()-menuBar.getHeight(),Color.BLACK,Color.RED));
+        this.stage.widthProperty().addListener(lambdaChangeListener);
+        this.stage.heightProperty().addListener(lambdaChangeListener);
         
-        //Checkerboard checkerboard = new Checkerboard();
         
     }
     
