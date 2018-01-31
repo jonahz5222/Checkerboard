@@ -31,10 +31,6 @@ public class Checkerboard extends Application {
         Startable controller = loader.getController();
        
         controller.start(stage);
-       
-        
-        
-        
         
     }
 
