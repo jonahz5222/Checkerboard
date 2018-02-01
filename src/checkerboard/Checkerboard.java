@@ -25,6 +25,8 @@ public class Checkerboard extends Application {
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setMinHeight(200);
+        stage.setMinWidth(200);
         stage.show();
         
         

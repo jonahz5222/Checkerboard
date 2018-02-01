@@ -68,6 +68,7 @@ public class CheckerboardClass {
                 AnchorPane.setLeftAnchor(rectangle, rectangleWidth * col);
                 
                 anchorPane.getChildren().add(rectangle);
+                System.out.println(anchorPane);
                 
             }
         }
