@@ -57,6 +57,7 @@ public class CheckerboardClass {
         
         for(int row = 0; row < numRows; row++){
             for(int col = 0; col < numColumns; col++){
+                
                 Rectangle rectangle;
                 if(( row + col ) % 2 == 0){
                     rectangle = new Rectangle(rectangleWidth, rectangleHeight, lightColor);
@@ -68,7 +69,7 @@ public class CheckerboardClass {
                 AnchorPane.setLeftAnchor(rectangle, rectangleWidth * col);
                 
                 anchorPane.getChildren().add(rectangle);
-                System.out.println(anchorPane);
+                
                 
             }
         }

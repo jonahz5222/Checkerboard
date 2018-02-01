@@ -31,6 +31,7 @@ public class CheckerboardFXMLController implements Initializable,Startable {
       
     @FXML
     private MenuBar menuBar;
+    
     @FXML
     private AnchorPane anchorPane;
     
